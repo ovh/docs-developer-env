@@ -1,4 +1,4 @@
-# OVH docs-dev-env
+# OVH Docs : Developer environment 
 
 Easy to deploy developer environment, for writing/testing guides & documentations for docs.ovh.com
 
