@@ -30,6 +30,8 @@ Start the build
 ./build.sh -f /path/to/docs
 ```
 
+Next, go to http:///localhost:8080/fr/
+
 ### Steps (Manual)
 
 First, build the docker image
