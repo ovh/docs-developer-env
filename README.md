@@ -8,7 +8,31 @@ Easy to deploy developer environment, for writing/testing guides & documentation
 
 - [Docker](https://docs.docker.com/install/) installed
 
-### Steps
+### Build script
+
+Show help
+
+```sh
+./build.sh -h
+
+> build.sh [-h] [-f folder] [-p port] build and start docs.ovh.com in a docker container
+>
+> where:
+>    -h  show this help
+>    -f  set the docs repo path to build (default: current directory)
+>    -p  set the exposed docker port (default: 8080)
+
+```
+
+Start the build
+
+```sh
+./build.sh -f /path/to/docs
+```
+
+Next, go to http:///localhost:8080/fr/
+
+### Steps (Manual)
 
 First, build the docker image
 ```sh
