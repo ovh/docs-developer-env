@@ -64,3 +64,28 @@ Third, stop the container
 ```sh
 docker stop ovh-docs-dev-env
 ```
+
+## Without Docker
+
+### Prerequesite
+
+- Python 3 installed
+
+### First launch
+
+After cloning this project, you need to initialize your environment
+```
+./generate-doc.sh init /path/to/ovh-docs
+```
+
+The generator checks out the docs-rendering Git project on `src/docs` directory, creates output folder and link to pages directory on your ovh-docs project.
+It launches the `pip install` command to install requirements like `Pelican`.
+And then, it calls the `entrypoint.sh` script.
+
+### Next launch
+
+```
+./generate-doc.sh launch
+```
+
+The generator checks `src/docs` exists and calls the `entrypoint.sh` script.
