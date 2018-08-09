@@ -67,26 +67,42 @@ docker stop ovh-docs-dev-env
 
 ## Without Docker
 
-Use this method only if docker is not an option.
+Use this method only if docker is not an option or for local development
 
-First checkout the 3 repositories
+First, checkout the following repositories
 
 ```shell
 git clone https://github.com/ovh/docs-developer-env.git
 git clone https://github.com/ovh/docs-rendering.git
-git clone https://github.com/ovh/docs.git
 ```
 
 Then, you'll need to prepare and install the dependencies
 
 ```shell
 cd docs-rendering
-python3 -m venv venv3  # create a virtualenv
-. venv3/bin/activate  # enter the virtualenv
-pip install -r requirements.txt  # install dependencies
-ln -sf ../docs/pages .  # prepare the source directory
-mkdir output  # prepare the destination directory
+python3 -m venv venv3  					# create a virtualenv
+. venv3/bin/activate  					# enter the virtualenv
+pip install -r requirements.txt  		# install dependencies
+mkdir output  							# prepare the destination directory
 ```
+
+### Option 1: full documentation
+
+```shell
+cd .. && git clone https://github.com/ovh/docs.git
+ln -sf ../docs/pages .  				# prepare the source directory
+```
+
+
+### Option 2: local guide edition
+
+```shell
+mkdir pages # prepare the source directory
+cp ../docs-developer-env/stub/ pages/	# copy a minimal set of file to get you started
+```
+
+
+
 
 Finally, without changing of directory
 ```shell
