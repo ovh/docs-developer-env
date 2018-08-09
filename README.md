@@ -69,14 +69,14 @@ docker stop ovh-docs-dev-env
 
 Use this method only if docker is not an option or for local development
 
-First, checkout the following repositories
+1. First, checkout the following repositories
 
 ```shell
 git clone https://github.com/ovh/docs-developer-env.git
 git clone https://github.com/ovh/docs-rendering.git
 ```
 
-Then, you'll need to prepare and install the dependencies
+2. Then, you'll need to prepare and install the dependencies
 
 ```shell
 cd docs-rendering
@@ -100,7 +100,7 @@ mkdir pages # prepare the source directory
 cp -r ../docs-developer-env/stub/ pages/	# copy a minimal set of file to get you started
 ```
 
-Finally, without changing of directory
+3. Finally, without changing of directory
 
 ```shell
 ../docs-developer-env/src/entrypoint.sh  # start pelican and the web-server
