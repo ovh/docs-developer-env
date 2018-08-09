@@ -67,28 +67,43 @@ docker stop ovh-docs-dev-env
 
 ## Without Docker
 
-Use this method only if docker is not an option.
+Use this method only if docker is not an option or for local development
 
-First checkout the 3 repositories
+1. First, checkout the following repositories
 
 ```shell
 git clone https://github.com/ovh/docs-developer-env.git
 git clone https://github.com/ovh/docs-rendering.git
-git clone https://github.com/ovh/docs.git
 ```
 
-Then, you'll need to prepare and install the dependencies
+2. Then, you'll need to prepare and install the dependencies
 
 ```shell
 cd docs-rendering
-python3 -m venv venv3  # create a virtualenv
-. venv3/bin/activate  # enter the virtualenv
-pip install -r requirements.txt  # install dependencies
-ln -sf ../docs/pages .  # prepare the source directory
-mkdir output  # prepare the destination directory
+python3 -m venv venv3  			# create a virtualenv
+. venv3/bin/activate  			# enter the virtualenv
+pip install -r requirements.txt	# install dependencies
+mkdir output  					# prepare the destination directory
 ```
 
-Finally, without changing of directory
+**Option 1: full documentation**
+
+```shell
+cd .. && git clone https://github.com/ovh/docs.git; cd -
+ln -sf ../docs/pages .  		# prepare the source directory
+```
+
+**Option 2: local guide edition**
+
+```shell
+mkdir pages # prepare the source directory
+cp -r ../docs-developer-env/stub/ pages/	# copy a minimal set of file to get you started
+```
+
+3. Finally, without changing of directory
+
 ```shell
 ../docs-developer-env/src/entrypoint.sh  # start pelican and the web-server
 ```
+
+and navigate to `http://localhost:8080/`
