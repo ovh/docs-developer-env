@@ -96,7 +96,6 @@ ln -sf ../docs/pages .  		# prepare the source directory
 **Option 2: local guide edition**
 
 ```shell
-mkdir pages # prepare the source directory
 cp -r ../docs-developer-env/stub/ pages	# copy a minimal set of file to get you started
 ```
 
