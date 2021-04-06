@@ -1,18 +1,22 @@
-FROM python:3.5
+FROM python:3.9.4
 
-ENV SRC=//src
-ENV WORKDIR=//src/docs
+LABEL \
+  maintainer="OVHcloud team" \
+  description="Image used to locally build the docs.ovh.com documentation."
+
+ENV \
+  SRC=/src \
+  WORKDIR=/src/docs
 
 ADD ./src $SRC
-RUN git clone https://github.com/ovh/docs-rendering.git $WORKDIR
+RUN git clone --recurse-submodules https://github.com/ovh/docs-rendering.git $WORKDIR
 WORKDIR $WORKDIR
-RUN mkdir pages
-RUN mkdir output
+RUN \
+  mkdir -p pages output && \
+  pip install -r requirements.txt && \
+  chmod +x $SRC/entrypoint.sh
 
 VOLUME ["$WORKDIR/pages/"]
-
-RUN pip install -r requirements.txt
-RUN chmod +x $SRC/entrypoint.sh
-
 EXPOSE 8080
+
 CMD $SRC/entrypoint.sh
