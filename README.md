@@ -1,3 +1,7 @@
+## This repository is not maintained anymore ! If you need to build our documentation from the source, please use : [docs-rendering](https://github.com/ovh/docs-rendering)
+
+-----
+
 # OVH Docs : Developer environment 
 
 Easy to deploy developer environment, for writing/testing guides & documentations for docs.ovh.com
